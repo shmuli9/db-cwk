@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="AWS_CW" uuid="16909f3f-8631-4dea-8a95-a2464a837fed">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://database-db-1.cctq2xp27p0g.eu-west-2.rds.amazonaws.com :3306/db_cw_3</jdbc-url>
+    </data-source>
+  </component>
+</project>
