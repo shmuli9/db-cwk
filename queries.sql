@@ -39,6 +39,12 @@ SELECT * FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SE
 
 /* ADVANCED: Select (number of flats) with click count since date */
 SELECT COUNT(*) FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SELECT COUNT(*) FROM Click WHERE property_id = P.PropertyID AND dtime BETWEEN '2019-10-01' AND CURDATE()) >= 3;
+#   Expected Output:
+#   `COUNT(*)`
+#   4
 
 /* ADVANCED: Select users whose average property click is more than X times grouped by post code */
 SELECT UPPER(f_name) AS FirstName, Upper(l_name) AS LastName, age AS Age, A.post_code AS PostCode, COUNT(ClickID) AS PropertyClicks FROM User INNER JOIN Address A on User.address_id = A.AddressID INNER JOIN Click C on User.UserID = C.UserID GROUP BY Age, f_name ORDER BY f_name DESC;
+#   Expected Output:
+#
+#
