@@ -1,3 +1,5 @@
+# Queries
+
 /* BASIC: Select Properties with sale_price < 500000 AND size_unit in metres */
 SELECT * FROM Property WHERE sale_price < 500000 AND size_unit = 'metres';
 #  Expected Output:
@@ -46,5 +48,9 @@ SELECT COUNT(*) FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WH
 /* ADVANCED: Select all users, displaying property click counts with datetime of last click, reverse ordered by first name limited to 5 records */
 SELECT UPPER(f_name) AS FirstName, UPPER(l_name) AS LastName, age AS Age, A.post_code AS PostCode, COUNT(ClickID) AS PropertyClicks, MAX(C.dtime) AS LastClick FROM User INNER JOIN Address A on User.address_id = A.AddressID INNER JOIN Click C on User.UserID = C.UserID JOIN Property P on C.property_id = P.PropertyID Group By Age, f_name ORDER BY f_name DESC LIMIT 5;
 #   Expected Output:
-#
-#
+#   FirstName   LastName    Age     PostCode    PropertyClicks  LastClick
+#   WAYNE	    COLES	    60	    S4 6FS	    16	            2019-12-24 19:04:29
+#   STACEY	    GRAY	    42	    ME4 2JB	    16	            2019-12-22 23:30:05
+#   NIGEL	    HOPKINS	    18	    PL33 2QB	17	            2019-10-18 10:39:53
+#   LEONARD	    WELLS	    64	    M6K 1DT	    22	            2019-12-20 10:47:38
+#   KEITH	    SULLIVAN	32	    SM6M 4AX	14	            2019-12-02 05:37:28
