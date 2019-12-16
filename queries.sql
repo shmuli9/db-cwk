@@ -2,7 +2,7 @@
 SELECT * FROM Property WHERE sale_price < 500000 AND size_unit = 'metres';
 
 /* BASIC: Select Properties with sale_price AND address*/
-SELECT * FROM Property INNER JOIN Address A2 on Property.address_id = A2.AddressID WHERE sale_price < 900000 AND address_line_1 LIKE '%70%';
+SELECT * FROM Property INNER JOIN Address A2 on Property.address_id = A2.AddressID WHERE sale_price < 900000 AND address_line_1 LIKE '%6%';
 
 /* MODERATE: Select Houses with room count */
 SELECT * FROM House INNER JOIN Property P on House.HouseID = P.PropertyID WHERE (SELECT COUNT(*) FROM Room WHERE property_id = P.PropertyID) > 10;
