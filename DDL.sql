@@ -22,7 +22,7 @@ CREATE TABLE Flat (
     FlatID int Primary Key AUTO_INCREMENT,
     FOREIGN KEY (FlatID) REFERENCES Property(PropertyID),
     leasehold_payment int,
-    leasehold_frequency int
+    leasehold_frequency varchar(32)
 );
 
 CREATE TABLE Room (
