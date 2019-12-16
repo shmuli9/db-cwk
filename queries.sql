@@ -12,7 +12,7 @@ SELECT * FROM Property WHERE sale_price < 500000 AND size_unit = 'metres';
 # 29	        86194	    29	        Metres
 # 30	        466256	    30	        Metres
 
-/* BASIC: Select Properties with sale_price AND address*/
+/* BASIC: Select Properties with sale_price AND address */
 SELECT * FROM Property INNER JOIN Address A2 on Property.address_id = A2.AddressID WHERE sale_price < 900000 AND address_line_1 LIKE '%6%';
 #  Expected Output:
 #  PropertyID  sale_price   address_id  size_unit   AddressID   address_line_1              address_line_2      post_code
@@ -38,7 +38,7 @@ SELECT * FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SE
 
 
 /* ADVANCED: Select (number of flats) with click count since date */
-SELECT COUNT(*) FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SELECT COUNT(*) FROM Click WHERE property_id = P.PropertyID AND dtime > '2019-12-25') > 8;
+SELECT COUNT(*) FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SELECT COUNT(*) FROM Click WHERE property_id = P.PropertyID AND dtime BETWEEN '2019-10-01' AND CURDATE()) >= 3;
 
 /* ADVANCED: Select users whose average property click is more than X times grouped by post code */
-SELECT UPPER(f_name) AS FirstName, Upper(l_name) AS LastName, age AS Age, A.post_code AS PostCode, COUNT(ClickID) AS PropertyClicks FROM User INNER JOIN Address A on User.address_id = A.AddressID INNER JOIN Click C on User.UserID = C.UserID HAVING COUNT(ClickID) > AVG(ClickID) ORDER BY age DESC;
+SELECT UPPER(f_name) AS FirstName, Upper(l_name) AS LastName, age AS Age, A.post_code AS PostCode, COUNT(ClickID) AS PropertyClicks FROM User INNER JOIN Address A on User.address_id = A.AddressID INNER JOIN Click C on User.UserID = C.UserID GROUP BY Age, f_name ORDER BY f_name DESC;
