@@ -14,7 +14,7 @@ CREATE TABLE Property (
     sale_price int,
     address_id int,
     FOREIGN KEY (address_id) REFERENCES Address(AddressID),
-    size_unit varchar(255)
+    size_unit varchar(16)
 );
 
 CREATE TABLE House (
