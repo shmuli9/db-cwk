@@ -1,3 +1,7 @@
+# All our SQL was designed and run successfully on MySQL 5.6, hosted on AWS
+
+# Table DDL:
+
 CREATE TABLE Address (
     AddressID int Primary Key AUTO_INCREMENT,
     address_line_1 varchar(255),

@@ -1,7 +1,9 @@
+# Queries
+
 /* BASIC: Select Properties with sale_price AND size_unit */
 SELECT * FROM Property WHERE sale_price < 500000 AND size_unit = 'metres';
 #  Expected Output:
-#  PropertyID  sale_price  address_id  size_unit
+#  PropertyID   sale_price  address_id  size_unit
 #  5	        357164	    5	        Metres
 #  6	        494577	    6	        Metres
 #  7	        41123	    7	        Metres
@@ -40,7 +42,7 @@ SELECT * FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SE
 /* ADVANCED: Select (number of flats) with click count since date */
 SELECT COUNT(*) FROM Flat INNER JOIN Property P on Flat.FlatID = P.PropertyID WHERE (SELECT COUNT(*) FROM Click WHERE property_id = P.PropertyID AND dtime BETWEEN '2019-10-01' AND CURDATE()) >= 3;
 #   Expected Output:
-#   `COUNT(*)`
+#  `COUNT(*)`
 #   4
 
 /* ADVANCED: Select users whose average property click is more than X times grouped by post code */
